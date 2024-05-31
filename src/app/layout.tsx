@@ -1,6 +1,8 @@
+import { AI } from "@/actions";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { nanoid } from "nanoid";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,47 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} bg-slate-900`}>
+        <AI
+          initialAIState={
+            [
+              // {
+              //   role: "user",
+              //   content: "hello",
+              //   id: "Ckcz3TPLhYh-P8ffxzWNz",
+              //   name: "",
+              // },
+              // {
+              //   id: "QVhX5hjXWvQ9UJtUuR0zX",
+              //   role: "assistant",
+              //   content: "Hello! How can I assist you with your financial planning today?",
+              // },
+              // {
+              //   role: "user",
+              //   content: "I buy a tea today for $5 record it",
+              //   id: "qv11S4Id5kSoERel-L65J",
+              //   name: "",
+              // },
+              // {
+              //   id: "Dha9R0KgZ2Yr9zQYpga4L",
+              //   role: "system",
+              //   content:
+              //     "[User added transaction On 30 May 2024 with amount of 5 and category of Food & Beverage the type is outcome]",
+              // },
+              // {
+              //   id: "2AsMSp2WJJsnxg2VBSlIG",
+              //   role: "function",
+              //   name: "recordTransaction",
+              //   content:
+              //     '{"amount":"5","category":"Food & Beverage","description":"A cup of tea","date":"30 May 2024","type":"outcome"}',
+              // },
+            ]
+          }
+          initialUIState={[]}
+        >
+          {children}
+        </AI>
+      </body>
     </html>
   );
 }
